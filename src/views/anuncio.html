@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja voluntário</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <main class="container">
+        <header class="header row">
+            <a href="/">
+                <img src="/assets/images/logo.png" alt="Logo do seja voluntário">
+                <h1 class="text-red text-shadow">Seja Voluntário</h1>
+            </a>
+        </header>
+
+        <section class="notice row">
+            <h2 class="text-red">{{vaga.titulo}}</h2>
+            <p class="city">
+                <strong>{{vaga.cidade}}</strong>
+            </p>
+            <p>
+                {{vaga.descricao}}
+            </p>
+            <P>
+                <a class="btn btn-red" href="mailto:{{vaga.email}}">Enviar email</a>
+            </P>
+        </section>
+
+        <footer class="footer">
+            <p>
+                <strong>Seja Voluntário</strong> feito com amor em Vila Valério
+            </p>
+        </footer>
+    </main>
+</body>
+</html>

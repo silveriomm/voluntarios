@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja voluntário</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/form.css">
+</head>
+<body>
+    <main class="container">
+        <header class="header row">
+            <a href="/">
+                <img src="/assets/images/logo.png" alt="Logo do seja voluntário">
+                <h1 class="text-red text-shadow">Seja Voluntário</h1>
+            </a>
+        </header>
+        
+        <section class="notices row" id="app">
+            <div class="form form-search">
+                <h2 class="text-blue">Busque uma vaga de voluntariado</h2>
+                <form action="" class="flex" @submit.prevent="buscar">
+                    <input type="text" name="key" v-model="key" class="col-half" placeholder="Entre com o que deseja buscar...">
+                    <button type="submit" class="btn btn-blue">Buscar</button>
+                </form>
+            </div>
+            <div class="grid grid-col-3" v-if="vagas">
+                    <article v-for="vaga in vagas" class="notice">
+                        <h4>\{{vaga.titulo}}</h4>
+                        <p class="city">
+                            <strong>\{{vaga.cidade}}</strong>
+                        </p>
+                        <p>
+                            \{{vaga.descricao}}
+                        </p>
+                        <P>
+                            <a class="btn btn-red" :href="'/anuncio/'+vaga.id">Saiba mais</a>
+                        </P>
+                    </article>
+                    <p v-else>Nenhuma vaga encontrada!</p>
+            </div>
+        </section>
+        
+        <footer class="footer">
+            <p>
+                <strong>Seja Voluntário</strong> feito com amor em Vila Valério
+            </p>
+        </footer>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!--<script src="/assets/js/forms.js"></script>-->
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: () => ({
+            vagas: null,
+            key: ''
+        }),
+        methods: {
+            async buscar() {
+                try {
+                    const response = await axios.get(`/api/busca?key=${this.key}`)
+                    this.vagas = response.data;
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+        },
+    })
+</script>
+</html>

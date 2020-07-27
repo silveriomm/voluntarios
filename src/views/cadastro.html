@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seja voluntário</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/form.css">
+</head>
+<body>
+    <main class="container">
+        <header class="header row">
+            <a href="/">
+                <img src="/assets/images/logo.png" alt="Logo do seja voluntário">
+                <h1 class="text-red text-shadow">Seja Voluntário</h1>
+            </a>
+        </header>
+        
+        <section class="form-row">
+            <h2 class="text-green">Cadastre sua vaga de voluntariado.</h2>
+            <form method="POST" action="/cadastro" class="flex" onsubmit="return validateNotice(this)">
+                <label for="email"><strong>Email</strong></label>
+                <input type="text" name="email" class="col-full" placeholder="Informe o email do responsável...">
+                <label for="descricao"><strong>Descrição</strong></label>
+                <textarea name="descricao" id="" rows="4" placeholder="Informe a descrição da vaga..."></textarea>
+                <div class="form-row">
+                    <label for="titulo"><strong>Título</strong></label>
+                    <input type="text" name="titulo" class="col-full" placeholder="Informe o título da vaga...">
+                </div>
+                <div class="form-row"></div>
+                    <label for="cidade"><strong>Cidade</strong></label>
+                    <input type="text" name="cidade" class="col-full" placeholder="Informe a cidade da vaga...">
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-green">Enviar anúncio</button>
+                </div>
+            </form>
+        </section>
+        
+        <footer class="footer">
+            <p>
+                <strong>Seja Voluntário</strong> feito com amor em Vila Valério
+            </p>
+        </footer>
+    </main>
+</body>
+<script src="/assets/js/forms.js"></script>
+</html>
